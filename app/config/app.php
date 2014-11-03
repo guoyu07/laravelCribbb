@@ -122,6 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		'Way\Generators\GeneratorsServiceProvider',	// 2. laravel-4-migrations
+
 	),
 
 	/*
