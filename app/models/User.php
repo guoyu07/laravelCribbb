@@ -26,7 +26,7 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password', 'remember_token');
-	protected $fillable = array('username', 'email');
+	protected $fillable = array('username', 'email', 'mobile', 'gender');
 	protected $guarded = array('id', 'password');
 
 	/**
@@ -65,8 +65,9 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	public static $rules = array(
 		'username' => 'required|between:4,16',
 		'email' => 'required|email',
-		'password' => 'required|alpha_num|min:8|confirmed',
-		'password_confirmation' => 'required|alpha_num|min:8',
+		'mobile' => 'required|alpha_dash',
+		'password' => 'required|min:8|confirmed',
+		'password_confirmation' => 'required|min:8',
 	);
 
 	public $autoPurgeRedundantAttributes = true;

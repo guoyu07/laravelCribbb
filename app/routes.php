@@ -22,8 +22,11 @@ Route::get('/user', function()
     $user = new User;
     $user->username = 'philipbrown';
     $user->email = 'name@domain.com';
+    $user->mobile = '12345678901';
     $user->password = 'deadgiveaway';
     $user->password_confirmation = 'deadgiveaway';
+    $user->gender = 1;
+    // $user = FactoryMuffin::create('User');
     var_dump($user->save());
 });
 
