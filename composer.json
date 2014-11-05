@@ -10,7 +10,8 @@
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
-	    "phpunit/phpunit": "4.2.*"
+	    "phpunit/phpunit": "4.2.*",
+	    "league/factory-muffin": "~2.0"
 	},
 	"autoload": {
 		"classmap": [
