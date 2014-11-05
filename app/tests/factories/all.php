@@ -4,7 +4,8 @@ use League\FactoryMuffin\Facade as FactoryMuffin;
  
 FactoryMuffin::define('Post', array(
     'user_id' => 'factory|User',
-    'body' => "sentence|5"
+    'body' => "sentence|5",
+    'clique_id' => 'factory|Clique'
 ));
  
 FactoryMuffin::define('User', array(
@@ -16,4 +17,12 @@ FactoryMuffin::define('User', array(
     // 'gender' => 'boolean',
     // 'name' => "name",
     // 'profile_pic' => 'optional:imageUrl|400;400'
+));
+
+FactoryMuffin::define('Clique', array(
+    'name' => "word"
+));
+
+FactoryMuffin::define('Comment', array(
+    'body' => "sentence|5"
 ));
