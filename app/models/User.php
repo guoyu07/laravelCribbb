@@ -79,4 +79,22 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Post');
 	}
 
+	/**
+	 * User following relationship
+	 *
+	 * The second argument of the belongsToMany() method allows you to define a table name that does not follow the normal convention and the third and forth arguments allow you to overwrite the conventional associated keys.
+	 *
+	 */
+	public function follow()
+	{
+		return $this->belongsToMany('User', 'user_follows', 'user_id', 'follow_id');
+	}
+	/**
+	 * User followers relationship
+	 */
+	public function followers()
+	{
+		return $this->belongsToMany('User', 'user_follows', 'follow_id', 'user_id');
+	}
+
 }
