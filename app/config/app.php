@@ -126,6 +126,7 @@ return array(
 
 		// My packages *****need to run `composer install` in workbench\Yiqifu\Wheel directory to make the package working.
 		'Yiqifu\Wheel\WheelServiceProvider',
+		'Yiqifu\Storage\StorageServiceProvider',
 
 	),
 
