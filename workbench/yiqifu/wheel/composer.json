@@ -1,0 +1,23 @@
+{
+    "name": "yiqifu/wheel",
+    "description": "",
+    "authors": [
+        {
+            "name": "alexgzhou",
+            "email": "alexgzhou@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Yiqifu\\Wheel\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

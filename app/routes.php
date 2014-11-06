@@ -100,3 +100,7 @@ Route::get('/userfollow', function()
     }
  
 });
+
+Route::get('/testwheel', function(){
+    echo Wheel::greeting();
+});
