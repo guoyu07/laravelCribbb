@@ -11,7 +11,8 @@
 	"require-dev": {
 		"way/generators": "~2.0",
 	    "phpunit/phpunit": "4.2.*",
-	    "league/factory-muffin": "~2.0"
+	    "league/factory-muffin": "~2.0",
+	    "mockery/mockery": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

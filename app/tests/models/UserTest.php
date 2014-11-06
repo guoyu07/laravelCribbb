@@ -51,6 +51,7 @@ class UserTest extends PHPUnit_Framework_TestCase {
 
         $post = FactoryMuffin::create('Post');
 
+        //  //可以直接用echo或var_dump在命令行输出内容
         // echo "\n\r".
         //      '$post->user->mobile: '.
         //      $post->user->mobile.
