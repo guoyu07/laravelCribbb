@@ -16,10 +16,10 @@
   {{ Form::text('mobile') }}</p>
  
   <p>{{ Form::label('password', 'Password') }}
-  {{ Form::text('password') }}</p>
+  {{ Form::password('password') }}</p>
  
   <p>{{ Form::label('password_confirmation', 'Password confirm') }}
-  {{ Form::text('password_confirmation') }}</p>
+  {{ Form::password('password_confirmation') }}</p>
  
   <p>{{ Form::submit('Submit') }}</p>
  
