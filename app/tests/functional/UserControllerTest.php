@@ -30,9 +30,102 @@ class UserControllerTest extends TestCase {
         $this->assertResponseOk();
     }
 
-    //Between each test, you need to clean up Mockery so that any expectations from the previous test do not interfere with the current test. To do that, we can simply create a tearDown() method: The static method close() cleans up the Mockery container used by the current test, and runs any verification tasks needed for your expectations.
-    public function tearDown()
+    public function testCreate()
     {
-        Mockery::close();
+        $this->call('GET', 'users/create');
+        $this->assertResponseOk();
     }
+
+    public function testStoreFails()
+    {
+        $this->mock->shouldReceive('create')
+                 ->once()
+                 ->andReturn(Mockery::mock(array(
+                     'isSaved' => false,
+                     'errors' => array()
+                   )));
+
+        $this->call('POST', 'users');
+
+        $this->assertRedirectedToRoute('users.create');
+        $this->assertSessionHasErrors();
+    }
+
+    public function testStoreSuccess()
+    {
+        $this->mock->shouldReceive('create')
+                 ->once()
+                 ->andReturn(Mockery::mock(array(
+                     'isSaved' => true
+                   )));
+
+        $this->call('POST', 'users');
+        $this->assertRedirectedToRoute('users.index');
+        $this->assertSessionHas('flash');
+    }
+
+    public function testShow()
+    {
+        $this->mock->shouldReceive('find')
+                 ->once()
+                 ->with(1);
+
+        $this->call('GET', 'users/1');
+
+        $this->assertResponseOk();
+    }
+
+    public function testEdit()
+    {
+        $this->call('GET', 'users/1/edit');
+        $this->assertResponseOk();
+    }
+
+    public function testUpdateFails()
+    {
+        $this->mock->shouldReceive('update')
+                 ->once()
+                 ->with(1)
+                 ->andReturn(Mockery::mock(array(
+                     'isSaved' => false,
+                     'errors' => array()
+                   )));
+
+        $this->call('PUT', 'users/1');
+
+        $this->assertRedirectedToRoute('users.edit', 1);
+        $this->assertSessionHasErrors();
+    }
+     
+    public function testUpdateSuccess()
+    {
+        $this->mock->shouldReceive('update')
+                 ->once()
+                 ->with(1)
+                 ->andReturn(Mockery::mock(array(
+                     'isSaved' => true
+                   )));
+
+        $this->call('PUT', 'users/1');
+
+        $this->assertRedirectedToRoute('users.show', 1);
+        $this->assertSessionHas('flash');
+    }
+
+    public function testDelete()
+    {
+        $this->mock->shouldReceive('delete')
+                 ->once()
+                 ->with(1);
+
+        $this->call('DELETE', 'users/1');
+
+        $this->assertResponseOk();
+    }
+
+    // //Between each test, you need to clean up Mockery so that any expectations from the previous test do not interfere with the current test. To do that, we can simply create a tearDown() method: The static method close() cleans up the Mockery container used by the current test, and runs any verification tasks needed for your expectations.
+    // public function tearDown()
+    // {
+    //     Mockery::close();
+    // }
 }

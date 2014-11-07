@@ -15,6 +15,7 @@ use League\FactoryMuffin\Facade as FactoryMuffin;
 
 Route::get('/', function()
 {
+    //Laravel will be looking for a file called hello.php or hello.blade.php under the app/views/ directory
 	return View::make('hello');
 });
 
@@ -127,4 +128,5 @@ Route::get('/testwheel', function(){
     echo Wheel::greeting();
 });
 
+//Laravel will automatically be expecting /users/create as a route so we don’t have to define it.
 Route::resource('users', 'UserController');
