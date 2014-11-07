@@ -20,7 +20,7 @@ Route::get('/', function()
 });
 
 // 3. setting-up-your-first-laravel-4-model ADD
-Route::get('/user', function()
+Route::get('user', function()
 {
     //load factories to use FactoryMuffin::create
     FactoryMuffin::loadFactories(__DIR__ . '/tests/factories');
@@ -67,7 +67,7 @@ Route::get('publish/a/post', function()
     return $post->body;
 });
 
-Route::get('/userfollow', function()
+Route::get('userfollow', function()
 {
     FactoryMuffin::loadFactories(__DIR__ . '/tests/factories');
 
@@ -124,9 +124,35 @@ Route::get('/userfollow', function()
  
 });
 
-Route::get('/testwheel', function(){
+Route::get('testwheel', function(){
     echo Wheel::greeting();
 });
 
 //Laravel will automatically be expecting /users/create as a route so we don’t have to define it.
 Route::resource('users', 'UserController');
+
+Route::get('usersindex', array(
+  'uses' => 'UserController@index',
+  'as' => 'users.index'
+));
+Route::get('register', array(
+  'uses' => 'RegisterController@index',
+  'as' => 'register.index'
+));
+Route::post('register', array(
+  'uses' => 'RegisterController@store',
+  'as' => 'register.store'
+));
+
+Route::get('login', array(
+  'uses' => 'SessionController@create',
+  'as' => 'session.create'
+));
+Route::post('login', array(
+  'uses' => 'SessionController@store',
+  'as' => 'session.store'
+));
+Route::get('logout', array(
+  'uses' => 'SessionController@destroy',
+  'as' => 'session.destroy'
+));
