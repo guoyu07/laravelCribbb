@@ -27,14 +27,15 @@ class SessionController extends BaseController {
  
   public function store()
   {
-    var_dump(array('email' => Input::get('email'), 'password' => Input::get('password')));
-    // if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
-    // {
-    //   return Redirect::intended('/');
-    // }
-    // return Redirect::route('session.create')
-    //         ->withInput()
-    //         ->with('login_errors', true);
+    // var_dump(Auth::attempt(array('email' => 'alexgzhou@163.com', 'password' => 'wlrhzts001')));
+    if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+    {
+      // return Redirect::intended('/');
+      return Redirect::route('users.index');
+    }
+    return Redirect::route('session.create')
+            ->withInput()
+            ->with('login_errors', true);
   }
  
   public function destroy()

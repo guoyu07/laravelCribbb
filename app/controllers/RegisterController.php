@@ -29,6 +29,12 @@ class RegisterController extends BaseController {
     // var_dump(Input::all());
     // var_dump($s->username);
     $s->password = Input::get('password');
+    $s->password_confirmation = Input::get('password_confirmation');
+
+    if ($s->password === $s->password_confirmation) {
+      $s->password = $s->password_confirmation = Hash::make(Input::get('password'));
+    }
+    
     if($s->save())
     {
       return Redirect::route('users.index')

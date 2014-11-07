@@ -33,7 +33,7 @@ class RegisterControllerTest extends TestCase{
   {
     $this->mock->shouldReceive('create')
       ->once()
-      ->andReturn(Mockery::mock(array('isSaved' => false, 'errors' => array())));
+      ->andReturn(Mockery::mock(array('save' => false, 'errors' => array())));
  
     $this->call('POST', 'register');
  
@@ -48,7 +48,7 @@ class RegisterControllerTest extends TestCase{
   {
     $this->mock->shouldReceive('create')
       ->once()
-      ->andReturn(Mockery::mock(array('isSaved' => true)));
+      ->andReturn(Mockery::mock(array('save' => true)));
  
     $this->call('POST', 'register');
  

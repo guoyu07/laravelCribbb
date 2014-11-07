@@ -156,3 +156,17 @@ Route::get('logout', array(
   'uses' => 'SessionController@destroy',
   'as' => 'session.destroy'
 ));
+
+Route::get('testauth', function(){
+    // // var_dump(Auth::attempt(array('username' => 'alexgzhou', 'password' => 'wlrhzts001')));
+    // echo(Hash::make('wlrhzts001').'---1---<br>');
+    // $options = [
+    //     'cost' => 10,
+    //     //'salt' => 'UbJECvgAffMEzWxNzDWQmdh7QWGcxBrv'
+    // ];
+    // echo(password_hash('wlrhzts001', PASSWORD_BCRYPT, array('cost' => 10)).'---2---<br>');
+    // echo(password_hash('wlrhzts001', PASSWORD_BCRYPT, array('cost' => 10)).'---3---<br>');
+    // var_dump(password_verify('wlrhzts001', Hash::make('wlrhzts001')));
+    // // var_dump(Hash::make('1'));
+    var_dump(Auth::attempt(array('username' => 'alexgzhou', 'password' => 'wlrhzts001')));
+});
