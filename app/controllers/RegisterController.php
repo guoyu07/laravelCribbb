@@ -44,6 +44,20 @@ class RegisterController extends BaseController {
     return Redirect::route('register.index')
       ->withInput()
       ->withErrors($s->errors());
+    
+    // $v = new Yiqifu\Services\Validators\User;
+ 
+    // if($v->passes())
+    // {
+    //   $this->user->create(Input::all());
+   
+    //   return Redirect::route('users.index')
+    //     ->with('flash', 'The new user has been created');
+    // }
+   
+    // return Redirect::route('register.index')
+    //   ->withInput()
+    //   ->withErrors($v->getErrors());
   }
  
 }

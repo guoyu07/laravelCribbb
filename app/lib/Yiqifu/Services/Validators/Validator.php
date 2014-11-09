@@ -13,7 +13,8 @@ abstract class Validator {
 
     public function passes()
     {
-        $validation = \Validator::make($this->input, static::$rules);
+        $validation = \Validator::make($this->input, static::$rules);   //\Validator::make是Laravel的类方法，不是本类的方法
+        // var_dump($validation);
         if($validation->passes()) return true;
         $this->errors = $validation->messages();
         return false;

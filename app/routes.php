@@ -129,7 +129,7 @@ Route::get('testwheel', function(){
 });
 
 //Laravel will automatically be expecting /users/create as a route so we don’t have to define it.
-Route::resource('users', 'UserController');
+// Route::resource('users', 'UserController');
 
 Route::get('usersindex', array(
   'uses' => 'UserController@index',
