@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Way\Generators\GeneratorsServiceProvider',	// 2. laravel-4-migrations
+		'Jfelder\OracleDB\OracleDBServiceProvider',	// Oracle插件
 
 		// My packages *****need to run `composer install` in workbench\Yiqifu\Wheel directory to make the package working.
 		'Yiqifu\Wheel\WheelServiceProvider',
