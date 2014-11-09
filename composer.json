@@ -7,7 +7,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"laravelbook/ardent": "2.*",
-		"magniloquent/magniloquent": "dev-master"
+		"magniloquent/magniloquent": "dev-master",
+		"jfelder/oracledb": "*"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
